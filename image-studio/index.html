@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#090a10">
+  <title>StarLife Image Studio</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="https://js.puter.com/v2/"></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand"><span class="spark">✦</span><div><strong>StarLife Image Studio</strong><small>AI image creator</small></div></div>
+      <span class="pill">No API key</span>
+    </header>
+    <section class="hero">
+      <p class="eyebrow">CREATE WITHOUT DEVELOPER KEYS</p>
+      <h1>Turn an idea into an image.</h1>
+      <p class="sub">Create anime characters, fantasy worlds, portraits, posters, products, and anything else you can describe — directly in your browser.</p>
+    </section>
+    <section class="workspace">
+      <div class="panel controls">
+        <label for="prompt">What do you want to create?</label>
+        <textarea id="prompt" rows="7" placeholder="Example: A powerful anime hero standing on a glowing futuristic rooftop at sunset, cinematic lighting, detailed clothing, dramatic clouds..."></textarea>
+        <div class="chips">
+          <button data-prompt="A stunning anime hero standing on a glowing futuristic rooftop at sunset, cinematic lighting, dramatic clouds, detailed clothing, dynamic pose">Anime hero</button>
+          <button data-prompt="An enormous magical fantasy kingdom floating above the clouds, waterfalls, castles, glowing crystals, epic cinematic landscape">Fantasy world</button>
+          <button data-prompt="A beautiful original anime character portrait, expressive eyes, detailed hair, elegant outfit, soft cinematic lighting, polished illustration">Character portrait</button>
+          <button data-prompt="A cute baby dragon flying above a colorful fantasy village, expressive face, whimsical atmosphere, detailed cartoon illustration">Cute dragon</button>
+        </div>
+        <div class="grid">
+          <label>Shape<select id="size"><option value="square">Square</option><option value="landscape">Landscape</option><option value="portrait">Portrait</option></select></label>
+          <label>Quality<select id="quality"><option value="high">High</option><option value="medium">Medium</option><option value="low">Fast</option></select></label>
+          <label>Background<select id="background"><option value="auto">Auto</option><option value="opaque">Opaque</option><option value="transparent">Transparent</option></select></label>
+        </div>
+        <div class="notice"><strong>No OpenAI API key.</strong><span>This app uses Puter.js in the browser, so you do not enter an OpenAI developer key.</span></div>
+        <button id="generate" class="generate">Generate image <span>⌘↵</span></button>
+        <p id="error" class="error" hidden></p>
+      </div>
+      <div class="panel preview">
+        <div class="preview-head"><span>Preview</span><span id="status">Ready</span></div>
+        <div id="stage" class="stage empty">
+          <div id="empty" class="empty-state"><div class="empty-icon">✦</div><h2>Your image will appear here</h2><p>Write a prompt and press Generate.</p></div>
+          <div id="loading" class="loading" hidden><div class="spinner"></div><h2>Creating your image…</h2><p>The AI image service is working.</p></div>
+          <img id="result" alt="Generated image" hidden>
+        </div>
+        <div class="actions"><button id="download" class="download" disabled>Download PNG</button><button id="clear" class="secondary">Clear</button></div>
+      </div>
+    </section>
+    <footer>Powered by Puter.js · No OpenAI developer key · Browser app</footer>
+  </main>
+  <script src="./app.js"></script>
+</body>
+</html>
